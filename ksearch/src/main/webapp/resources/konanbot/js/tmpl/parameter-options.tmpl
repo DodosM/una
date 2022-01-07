@@ -1,0 +1,19 @@
+{{if subTypes && subTypes.length > 0}}
+<div class="col-xs-4 param-item">
+	<label for="" class="control-label">{{:layer_label_parameter_options}}</label>
+	<div class="control-form">
+		<select class="form-control slot-options" name="type">
+			{{for subTypes itemVar="~subType"}}
+			<option value="{{:}}" {{if #data == ~root.options}}selected{{/if}}>{{:}}</option>
+			{{/for}}
+		</select>
+	</div>
+</div>
+{{else}}
+<div class="row form-group param-item {{if optional}}optional{{/if}} {{if hidden}}hidden{{/if}}">
+	<label for="" class="control-label">{{:layer_label_parameter_options}}</label>
+	<div class="control-form">
+		<textarea class="form-control slot-options resize" rows="1" onkeyup="$(this).resizeText();" onpaste="$(this).resizeText();">{{>options}}</textarea>
+	</div>
+</div>
+{{/if}}

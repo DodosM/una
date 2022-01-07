@@ -1,0 +1,22 @@
+<!-- LINK -->
+<div class="form-group richtmpl tmpl-link" data-type="link">
+	<label for="" class="col-xs-2 control-label">{{:label_title}}</label>
+	<div class="col-xs-10 richtmpl-container">
+		<div class="elem-form-group">
+			<div class="elem-form">
+				<a class="elem elem-button btn btn-sm" href="javascript:void(0);" onclick="javascript:tmplButton.edit(this);">
+					<span class="elem-icon icon-left"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+					<span class="elem-name ellipsis">{{if title}}{{>title}}{{/if}}</span>
+				</a>
+				<div class="elem-edit hidden">
+					<input type="text" class="form-control input-sm elem-name" value="{{if title}}{{>title}}{{/if}}" placeholder="{{:placeholder_name}}" onfocusout="javascript:tmplButton.changeName(this);">
+					<input type="text" class="form-control input-sm elem-value" value="{{if value}}{{>value}}{{/if}}" placeholder="{{:placeholder_value}}">
+					<div class="checkbox"><label><input type="checkbox" name="target" {{if target && target=="_self"}}{{else}}checked{{/if}} >{{:placeholder_target}}</label></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="richtmpl-del">	
+		<button type="button" class="btn btn-sm" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

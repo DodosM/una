@@ -1,0 +1,36 @@
+<!-- BUTTON -->
+<div class="elem-form richtmpl tmpl-button">
+	<div class="elem elem-button btn btn-sm" onclick="javascript:tmplButton.edit(this);">
+		<span class="elem-icon icon-left"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+		<span class="elem-name ellipsis">{{if text}}{{>text}}{{/if}}</span>
+		<span class="elem-icon icon-right" onclick="javascript:tmplButton.remove(this);"><i class="fa fa-minus" aria-hidden="true"></i></span>
+	</div>
+	<div class="elem-edit hidden">
+		<input type="text" class="form-control input-sm elem-name" value="{{if text}}{{>text}}{{/if}}" placeholder="{{:placeholder_name}}" onfocusout="javascript:tmplButton.changeName(this);">
+		<select class="elem-type" onchange="javascript:tmplButton.changeType(this);">
+			<option value="postback" {{if type == 'postback'}}selected{{/if}}>Postback</option>
+			<option value="web_url" {{if type == 'web_url'}}selected{{/if}}>Web URL</option>
+			<option value="func" {{if type == 'func'}}selected{{/if}}>Function</option>
+			<option value="action" {{if type == 'action'}}selected{{/if}}>{{:label_otheraction}}</option>
+		</select>
+		<div class="col-xs-10 control-div button-goto{{if type != 'action'}} hidden{{/if}}">
+			<div class="elem-form">
+				<input type="text" class="form-control input-sm goto-text" value="{{if _goto.text}}{{:_goto.text}}{{/if}}" placeholder="{{:placeholder_goto}}" onclick="javascript:gotofunc.edit(event);" readonly >
+			</div>
+			<div class="goto-edit hidden">
+				<select class="form-control input-sm ellipsis goto-scenario" onchange="javascript:gotofunc.scenario.change($(this));">
+					<option value="">{{:label_selectbox}}</option>
+					{{for _scnlist}} 
+					<option value="{{>fileName}}"{{if ~root._goto.scenario.id == fileName}} selected{{/if}}>{{>scenarioName}} ({{>fileName}})</option>
+					{{/for}}
+				</select>
+				<select class="form-control input-sm ellipsis goto-action" onchange="javascript:gotofunc.action.change($(this));">
+					{{for _goto.actionlist}}
+					<option value="{{>id}}"{{if ~root._goto.action.id == id}} selected{{/if}}>{{>name}}{{if id}} ({{>id}}){{/if}}</option>
+					{{/for}}
+				</select>
+			</div>
+		</div>
+		<input type="text" class="form-control input-sm elem-value {{if type == 'action'}} hidden{{/if}}" value="{{if type == 'web_url' && url}}{{>url}}{{else value}}{{>value}}{{/if}}" placeholder="{{:placeholder_type_value}}">
+	</div>
+</div>

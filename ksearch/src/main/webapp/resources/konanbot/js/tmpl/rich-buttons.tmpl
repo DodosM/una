@@ -1,0 +1,23 @@
+<!-- BUTTONS -->
+<div class="form-group richtmpl tmpl-buttons" data-type="buttons">
+	<label for="" class="col-xs-2 control-label">{{:label_title}}</label>
+	<div class="col-xs-10 richtmpl-container">
+		<div class="richtmpl-border">
+			<div class="elem-form-group">
+			</div>
+
+			<div class="elem-form-add">
+				<button type="button" class="btn btn-sm elem-add" onclick="javascript:tmplButton.add(this);">{{:label_add}}</button>
+			</div>
+
+			<div class="elem-form-align">
+				<label>{{:label_align}}</label>
+				<span class="elem-icon elem-layout {{if !(layout && layout == 'horizontal')}}active{{/if}}" data-layout="vertical" onclick="javascript:tmplButton.changeLayout(this);" title="{{:label_v}}"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+				<span class="elem-icon elem-layout {{if layout && layout == 'horizontal'}}active{{/if}}" data-layout="horizontal" onclick="javascript:tmplButton.changeLayout(this);" title="{{:label_h}}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
+			</div>
+		</div>
+	</div>
+	<div class="richtmpl-del">	
+		<button type="button" class="btn btn-sm" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+<!-- ANY -->
+<div class="form-group richtmpl tmpl-input tmpl-any" data-type="any">
+	<label for="" class="col-xs-2 control-label">
+		<input type="text" class="form-control input-sm elem-type" value="{{if key}}{{>key}}{{/if}}" placeholder="{{:placeholder_key}}">
+	</label>
+	<div class="col-xs-10 richtmpl-container">
+		<div class="elem-form-group">
+			<div class="elem-form">
+				<div class="elem elem-title ellipsis" onclick="javascript:tmplInput.edit(event);">{{if value}}{{>value}}{{/if}}</div>
+				<div class="elem-edit hidden">
+					<input type="text" class="form-control input-sm elem-value" value="{{if value}}{{>value}}{{/if}}" placeholder="{{:placeholder_value}}"  onfocusout="javascript:tmplInput.edit(event);">
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="richtmpl-del">
+		<button type="button" class="btn btn-sm" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

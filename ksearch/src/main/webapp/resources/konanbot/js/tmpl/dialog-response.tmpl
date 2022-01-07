@@ -1,0 +1,53 @@
+{{if contents}}
+{{for contents}}
+   <div class="item{{if #index===0}} active{{/if}}">
+	{{for elements}}
+		{{if type=="image"}}<img src="{{:value}}" {{imagesize: width height ~root.contents.maxwidth}} />
+		{{else type=="link"}}<a class="btn-link ellipsis" target="{{if target}}{{>target}}{{else}}_blank{{/if}}" href="{{>value}}" title="{{>title}}"><img src="{{:~root.contextpath}}css/img/ico-link.png" alt="">{{>title}}</a>
+		{{else type=="buttons"}}
+			{{if layout=="horizontal"}}
+				<ul class="p-info"><li class="tag">
+					{{for elements}}
+						{{if type=="web_url"}}
+						<button type="button" class="btn ellipsis" onclick="{{:~root.functionName}}('{{:type}}', '{{escape:text}}', '{{escape:url}}');"><img src="{{:~root.contextpath}}css/img/ico-link.png" alt="">{{:text}}</button>
+						{{else}}
+						<button type="button" class="btn ellipsis" onclick="{{:~root.functionName}}('{{:type}}', '{{escape:text}}', '{{escape:value}}');">{{:text}}</button>
+						{{/if}}
+					{{/for}}
+				</li></ul>
+			{{else}}
+				{{for elements}}
+					{{if type=="web_url"}}
+					<button type="button" class="btn-link ellipsis" onclick="{{:~root.functionName}}('{{:type}}', '{{escape:text}}', '{{escape:url}}');"><img src="{{:~root.contextpath}}css/img/ico-link.png" alt="">{{:text}}</button>
+					{{else}}
+					<button type="button" class="btn-link ellipsis" onclick="{{:~root.functionName}}('{{:type}}', '{{escape:text}}', '{{escape:value}}');">{{:text}}</button>
+					{{/if}}
+				{{/for}}
+			{{/if}}
+		{{else type=="video"}}
+			<video class="media-form" controls="" name="media">
+				<source src="{{if text}}{{>text}}{{/if}}">
+			</video>
+		{{else type=="audio"}}
+			<audio class="media-form" controls="" name="media">
+				<source src="{{if text}}{{>text}}{{/if}}">
+			</audio>
+		{{else type=="iframe"}}
+			<iframe src="{{if text}}{{>text}}{{/if}}"></iframe>
+		{{else type=="text"}}<p>{{:text}}</p>
+		{{else type=="expansion"}}
+			<a href="{{>text}}" title="{{>filename}}" target="_target" download><button class="btn-link ellipsis"><i class="fa fa-download" aria-hidden="true"></i> {{:filename}}</button></a>
+		{{else type=="carousel"}}
+			{{include tmpl="carouselTmpl" /}}
+		{{else type=="any"}}
+			<p class="{{if key}}{{>key}}{{/if}}" >{{if value}}{{>value}}{{/if}}</p>
+		{{else type=="tts"}}
+			<audio controls="" name="tts" style="display:none;" data-text="{{>text}}" data-autoplay="{{:autoplay}}"></audio>
+			{{if visibletext}}<p>{{>text}}</p>{{/if}}
+		{{else}}
+			<p class='{{if type=="title"}}title{{else type=="subtitle"}}subtitle{{/if}}' >{{:text}}</p>
+		{{/if}}
+	{{/for}}
+  </div>
+{{/for}}
+{{/if}}

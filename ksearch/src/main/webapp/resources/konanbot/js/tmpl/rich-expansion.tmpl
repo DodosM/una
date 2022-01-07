@@ -1,0 +1,19 @@
+<!-- EXPANTION -->
+<div class="form-group richtmpl tmpl-expansion" data-type="expansion">
+	<label for="" class="col-xs-2 control-label">{{:label_title}}</label>
+	<div class="col-xs-10 richtmpl-container">
+		<div class="elem-form-group">
+			<div class="elem-form">
+				<div class="elem elem-title ellipsis" onclick="javascript:tmplAttach.select(this);"	{{if text}} path="{{>text}}"{{/if}} {{if filename}} filename="{{>filename}}" {{else text}} filename="{{filename:text}}"{{/if}} >
+					{{if filename}}{{>filename}}{{else text}}{{filename:text}}{{/if}}
+				</div>					
+				<div class="elem-edit hidden">
+					<input type="file" class="elem-file" onchange="javascript:tmplAttach.upload(this);" />
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="richtmpl-del">
+		<button type="button" class="btn btn-sm" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

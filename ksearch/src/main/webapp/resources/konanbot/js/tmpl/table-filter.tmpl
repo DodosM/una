@@ -1,0 +1,12 @@
+<div class="dropdown filter-wrap" id="filter-{{:filtername}}">
+	<div class="dropdown-toggle" id="dropdownMenuButton" onclick="javascript:filter.open(this);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<i class="fa fa-filter" aria-hidden="true"></i>
+	</div>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" role="menu" style="width:180px;">
+		<ul class="drop-list" style="max-height: 320px;"></ul> 
+		<div class="buttons">
+			<button type="button" class="btn btn-sm btn-default apply" onclick="javascript:{{:callbackfunc}}(this);">{{:applybutton}}</button>
+			<button type="button" class="btn btn-sm cancel">{{:cancelbutton}}</button>
+		</div>
+	</div>
+</div>

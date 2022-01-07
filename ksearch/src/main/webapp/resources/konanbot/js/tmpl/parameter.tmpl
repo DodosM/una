@@ -1,0 +1,92 @@
+<div class="tab-form-wrap parameter-wrap">
+	<div class="form-horizontal">
+		
+		<div class="row form-group">
+
+			<div class="col-xs-4 param-item">
+ 				<label for="" class="control-label">{{:layer_label_parameter_name}}</label>
+  				<div class="control-form">
+					<input type="text" class="form-control slot-name" name="param-name" value="{{>name}}" onkeyup="javascript:resetinputError(this)"/>
+  				</div>
+  			</div>
+  			
+  			<div class="col-xs-4 param-item param-checkbox">
+ 				<label for="" class="control-label">{{:layer_label_parameter_required}}</label>
+				<input type="checkbox" class="slot-required"{{if required}} checked{{/if}} onclick="javascript:slotfilling.required.check(this);" />
+  			</div>
+
+			<div class="col-xs-4 param-item">
+				<label for="" class="control-label">{{:layer_label_parameter_type}}</label>
+				<div class="control-form">
+					<select class="form-control slot-type" name="type" onchange="javascript:slotfilling.change(this);">
+						{{for slotTypes itemVar="~slotType"}}
+						<option value="{{>~slotType}}"{{if ~root.type==~slotType}} selected{{/if}}>{{>~slotType}}</option>
+						{{/for}}
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="param-required-options" style="display:{{if required}}block{{else}}none{{/if}}">
+			<div class="row form-group param-item">
+				<label for="" class="control-label">{{:layer_label_parameter_prompt}}</label>
+				<div class="control-form">
+					<div class="col-xs-12 slot-prompt richarea"></div>
+				</div>
+			</div>
+	
+			<div class="row form-group param-item optional hidden retrymessage">
+				<label for="" class="control-label">{{:layer_label_parameter_retrymsg}}</label>
+				<div class="control-form">
+					<ul class="list-group">
+						{{if retryMessage}}
+						{{for retryMessage}}
+							<li class="list-group-item">
+								<input type="text" class="form-control slot-retryMessage" value="{{>#data}}" "/>
+								<div class="btn-set">
+									<button type="button" class="btn btn-default btn-xs btn-plus" onclick="javascript:slotfilling.retrymessage.add(this);"><i class="fa fa-plus" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-default btn-xs btn-minus" onclick="javascript:slotfilling.retrymessage.remove(this);"><i class="fa fa-minus" aria-hidden="true"></i></button>
+								</div>
+							</li>
+						{{/for}}
+						{{else}}
+						<li class="list-group-item">
+							<input type="text" class="form-control slot-retryMessage" />
+							<div class="btn-set">
+								<button type="button" class="btn btn-default btn-xs btn-plus" onclick="javascript:slotfilling.retrymessage.add(this);"><i class="fa fa-plus" aria-hidden="true"></i></button>
+								<button type="button" class="btn btn-default btn-xs btn-minus" onclick="javascript:slotfilling.retrymessage.remove(this);"><i class="fa fa-minus" aria-hidden="true"></i></button>
+							</div>
+						</li>
+						{{/if}}
+					</ul>
+					<div class="param-retry-count">
+						<label for="retryCount">{{:layer_label_parameter_retrycount}}</label>
+						<select class="slot-retrycount">
+							<option value="-1" selected>{{:layer_label_parameter_retrycount_unlimited}}</option>
+							<option value="3"{{if retryCount == 3}} selected{{/if}}>3 {{:layer_label_parameter_retrycount_num}}</option>
+							<option value="2"{{if retryCount == 2}} selected{{/if}}>2 {{:layer_label_parameter_retrycount_num}}</option>
+							<option value="1"{{if retryCount == 1}} selected{{/if}}>1 {{:layer_label_parameter_retrycount_num}}</option>
+							<option value="0"{{if retryCount == 0}} selected{{/if}}>{{:layer_label_parameter_retrycount_none}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row form-group param-item optional hidden">
+			<label for="" class="control-label">{{:layer_label_parameter_options}}</label>
+  			<div class="control-form">
+				<textarea class="form-control slot-options resize" rows="1" onkeyup="$(this).resizeText();" onpaste="$(this).resizeText();">{{>options}}</textarea>
+  			</div>
+ 		</div>
+ 	</div>
+ 	
+ 	<div class="param-required-options-button" style="display:{{if required}}block{{else}}none{{/if}}">
+		<div class="btn-bottom-wrap" style="display:none;">
+			<button type="button" class="btn btn-default btn-xs btn-hidden" onclick="javascript:slotfilling.hidden(this);"><i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
+		</div>
+	</div>
+	<div class="btn-vertical-wrap">
+		<button type="button" class="btn btn-default btn-sm" id="remove_parameter" onclick="javascript:slotfilling.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

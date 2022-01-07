@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 로그 경로 변수 선언 -->
+    <property name="LOG_DIR" value="./logs" />
+    
+    
+	<!-- Console Appender -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>%d{yyyy-mm-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M [%L]- %msg%n</Pattern>
+            </layout>
+        </appender>
+    
+   <!-- Rolling File Appender -->
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <encoder>
+                <Pattern>%d{yyyy-mm-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M [%L]- %msg%n</Pattern>
+            </encoder>
+            <file>${LOG_DIR}/ksearch.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_DIR}/ksearch-%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+                <maxFileSize>10MB</maxFileSize>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+        </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

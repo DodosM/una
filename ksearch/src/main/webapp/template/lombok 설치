@@ -1,0 +1,44 @@
+참고 : https://dev114.tistory.com/369
+
+
+cmd 콘솔화면에서 본인 PC의 메이븐 레퍼지토리 경로로 이동하여
+
+(예 ::\konan.project\workspace\ksearch\src\main\webapp\template)
+
+아래 명령어를 실행
+
+java -jar lombok.jar
+
+
+
+아래 화면에 표시되면, Specify location 버튼을 클릭
+
+
+
+이클립스 실행파일(eclipse.exe)을 선택한후 확인
+
+
+
+Install / Update 버튼 클릭
+
+
+
+아래와 같이 나오면 설치 완료. X 표시 또는 Quit Installer 버튼 클릭
+
+
+
+설치확인
+
+이클립스 경로내 lombok.jar 생성
+
+
+
+eclipse.ini내 lombok 항목 추가
+
+
+
+이클립스 재시작한후, 아래와 같이 @Data 입력시 getter, setter가 자동생성되는지 확인
+
+
+
+

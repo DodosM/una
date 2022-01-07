@@ -1,0 +1,58 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/*-----------------------------------------
+    layout
+-------------------------------------------*/
+html, body { font-family: "맑은 고딕", "나눔고딕", "돋움", "Malgun Gothic", 'Nanum Gothic', dotum, arial, sans-serif; background: #d9d7d7; color: #000; box-sizing: border-box; height: 100%; font-size: 12px;}
+.container { width: 100%; height: 100%; margin: 0 auto; padding: 0; font-size: 100%; vertical-align: baseline;}
+.head { background: url(../img/bg01.png) no-repeat; height: 122px;}
+.chat-wrap { width: 100%; height: 100%; padding-top: 46px; padding-bottom: 51px; position:absolute;}
+.foot { background: url(../img/bg04.png) no-repeat bottom; height: 61px;}
+
+/*-----------------------------------------
+    chat-header
+-------------------------------------------*/
+.chat-header {width: 100%; margin: 0 auto; font-size: 100%; vertical-align: baseline; background: #f2f2f2; padding: 10px 20px; border-bottom: 2px solid white; position: fixed;}
+.chat-header i {color: #000;}
+.chat-header .chat-about {margin-top: 0; float: left; padding-left: 0;}
+.chat-header .chat-with {font-weight: bold; font-size: 16px;}
+.chat_userinfo {font-weight: normal; font-size: 10pt;}
+
+/*-----------------------------------------
+    container
+-------------------------------------------*/
+.chat-wrap .chat { background: #f2f2f2; padding: 20px 15px 10px 12px; overflow-x: hidden; overflow-y: auto; height: 100%; box-sizing: border-box;}
+.message li { -webkit-transition: all .5s; transition: all .5s; position: relative; display: block;}
+.message li:after,
+.message li:before { content: ""; clear: both; display: block;}
+/*.message li.bot { float: left;}*/
+/*.message li.user { float: right;}*/
+.message li.bot .avata { width: 47px; height: 47px; background: url(../img/admin.png) no-repeat; float: left; position: absolute; top: 0; left: 0;}
+.message li.bot .name { font-size: 12px; font-weight: bold; margin-left: 56px; padding-top: 3px;}
+.message li .bubble { clear: both; border-radius: 10px; font-size: 14px; padding: 12px; position: relative; line-height: 1.4;}
+.message li.bot .bubble { margin: 11px 0 20px 56px; border: 1px solid #d8d6d6;  background: #fff; float: left; position: relative; }
+.message li.bot .bubble .b-tail { background: url(../img/bubbletail_white.png) no-repeat; width: 18px; height: 20px; position: absolute; top: -8px; left: -5px; z-index: 10;}
+.message li.bot .time { font-size: 11px; color: #999898; position: absolute; bottom: 0;right: -60px;}
+
+.message li.user .bubble { background: #ec565e; color: #fff; float: right; margin-bottom: 20px;}
+.message li.user .bubble .b-tail { background: url(../img/bubbletail_red.png) no-repeat; width: 18px; height: 20px; position: absolute; top: -7px; right: -4px; z-index: 10;}
+.message li.user .time { font-size: 11px; color: #999898; position: absolute; bottom: 0; left: -60px;}
+
+.write-form { box-sizing: border-box; height: 51px; border-top: 2px solid #cbc1c4;background: #fff; margin: 0; width: 100%;}
+.write-form textarea { box-sizing: border-box; margin: 5px 5px 0 5px; width:80%; outline: none; padding: 10px; border: none; resize: none; font-family: "나눔고딕", 'Nanum Gothic', "맑은 고딕", "돋움", "Malgun Gothic", arial, sans-serif; line-height: 1.4; font-size: 14px; overflow: hidden;}
+
+#textarea-b::-webkit-input-placeholder { color: #825e68; font-family: "나눔고딕", 'Nanum Gothic', "맑은 고딕", "돋움", "Malgun Gothic", arial, sans-serif; font-size: 14px; padding-left: 175px;}
+#textarea-b::-moz-input-placeholder { color: #825e68; font-family: "나눔고딕", 'Nanum Gothic', "맑은 고딕", "돋움", "Malgun Gothic", arial, sans-serif; font-size: 14px; padding-left: 175px;}
+#textarea-b:-moz-input-placeholder { color: #825e68; font-family: "나눔고딕", 'Nanum Gothic', "맑은 고딕", "돋움", "Malgun Gothic", arial, sans-serif; font-size: 14px; padding-left: 175px;}
+#textarea-b:-ms-input-placeholder { color: #825e68; font-family: "나눔고딕", 'Nanum Gothic', "맑은 고딕", "돋움", "Malgun Gothic", arial, sans-serif; font-size: 14px; padding-left: 175px;}
+
+#textarea-b:focus::-webkit-input-placeholder { color: transparent;}
+#textarea-b:focus::-moz-input-placeholder { color: transparent;}
+#textarea-b:focus:-moz-input-placeholder { color: transparent;}
+#textarea-b:focus:-ms-input-placeholder { color: transparent;}
+
+.write-form .send { float: right; width: 62px; height: 39px; background: #544f4f; margin: 5px 10px; border-radius: 4px; color: #fff; font-size: 13px; font-weight: normal; text-align: center; line-height: 39px; cursor: pointer;}
+
+.message li.bot .bubble img { /*max-width: 270px!important;*/ }
+.message li.bot .bubble table{border-collapse:collapse; }  
+.message li.bot .bubble table th, .message li.bot .bubble table td { border:1px solid black; }

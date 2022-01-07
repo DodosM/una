@@ -1,0 +1,16 @@
+<!-- TEXT -->
+<div class="form-group richtmpl tmpl-input tmpl-text summernote-layer" data-type="text">
+	<label for="" class="col-xs-2 control-label">{{:label_title}}<button type="button" class="btn btn-sm btn-editor" onclick="javascript:tmplText.change(this);"><i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i></button></label>
+	<div class="col-xs-10 richtmpl-container">
+		<div class="elem-form-group">
+			<div class="elem-form">
+				<div class="elem-edit">
+					<textarea class="form-control summernote input-sm elem-value" placeholder="{{:placeholder}}">{{if text}}{{>text}}{{/if}}</textarea>			
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="richtmpl-del">
+		<button type="button" class="btn btn-sm btn-editor" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

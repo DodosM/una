@@ -1,0 +1,23 @@
+<!-- CAROUSEL -->
+<div class="form-group richtmpl tmpl-carousel" data-type="carousel" onclick="javascript:richcard.focus(this, event);">
+	<div id="carousel{{>cidx}}" class="carousel slide" data-ride="carousel" data-interval="false">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox"></div>
+	
+		<!-- Controls -->
+		<a class="left carousel-control{{if itemsize < 2}} hidden{{/if}}" href="#carousel{{>cidx}}" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left arrow_carrot-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control{{if itemsize < 2}} hidden{{/if}}" href="#carousel{{>cidx}}" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right arrow_carrot-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+		
+		<!-- Indicators -->
+		<ol class="carousel-indicators{{if itemsize < 2}} hidden{{/if}}"></ol>
+	</div>
+	<div class="btn-vertical-wrap">	
+		<button type="button" class="btn btn-sm" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

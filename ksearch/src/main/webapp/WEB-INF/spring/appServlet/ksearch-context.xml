@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:properties id="searchConfig_origin">
+        <prop key="SITE">KONAN</prop>
+        <prop key="CHARSET">UTF-8</prop>
+        <prop key="CREDENTIAL">0baea2f0ae20150d</prop>
+        <prop key="KLA_URL">http://127.0.0.1:7581</prop>
+        <prop key="SEARCH_URL">http://127.0.0.1:7577/search5</prop>
+        <prop key="KSF_URL">http://127.0.0.1:7614/ksf/api/</prop>
+        <prop key="KONANBOT_URL">http://10.10.20.23:7624/konanbot/</prop>
+        <prop key="KONANBOT_DEFAULT_DOMAIN">common</prop>
+        <prop key="KONANBOT_DEFAULT_USER">test</prop>
+        <prop key="TIMEOUT">5000</prop>
+    </util:properties>
+
+</beans>

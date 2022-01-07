@@ -1,0 +1,57 @@
+void main()
+{
+	try {
+		CREATE VOLUME BY FORCE temp;
+		USE VOLUME temp;
+
+		ECHO "[CREATE TABLE - BEGIN: log]";
+		CREATE TABLE log
+		(
+			date 		STRING              ,
+			time     	STRING              ,
+			targeturl  	STRING VERBATIM NULL,
+			docid     	STRING VERBATIM NULL,
+			section     STRING VERBATIM NULL,
+			keyword     STRING VERBATIM NULL,
+			title     	STRING VERBATIM NULL,
+			user		STRING VERBATIM NULL
+		);
+
+		ECHO "[CREATE TABLE - END: log]";
+
+		ECHO "[CREATE INDEX - BEGIN: log]";
+
+			CREATE INDEX idx_date 	    ON log (date);
+			CREATE INDEX idx_time       ON log (time);
+			CREATE INDEX idx_docid      ON log (docid);
+			CREATE INDEX idx_section    ON log (section);
+			CREATE INDEX idx_keyword    ON log (keyword);
+			CREATE INDEX idx_title      ON log (title);
+			CREATE INDEX idx_user       ON log (user);
+			CREATE INDEX idx_targeturl	ON log (targeturl);
+		ECHO "[CREATE INDEX - END: log]";
+
+		ECHO "[CREATE GATEWAY - BEGIN: log]";
+
+		CREATE GATEWAY gw ON log
+		TO FILE SYSTEM FORMAT
+		FIELD LINE STARTS WITH
+			date 		= "<__date__>" ,
+			time     	= "<__time__>",
+			targeturl	= "<__targeturl__>",
+			docid     	= "<__docid__>",
+			section     = "<__section__>",
+			keyword     = "<__keyword__>",
+			title     	= "<__title__>",
+			user     	= "<__user__>";
+		ECHO "[CREATE GATEWAY - END: gw]";
+
+
+		ECHO "[COPY VOLUME: temp -> logflow_KONAN]";
+		COPY VOLUME temp TO logflow_KONAN;
+
+	} catch (string ex) {
+		ECHO ex;
+		throw ex;
+	}
+}

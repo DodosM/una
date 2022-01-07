@@ -1,0 +1,34 @@
+<!-- IMAGE -->
+<div class="form-group richtmpl tmpl-image" data-type="image">
+	<label for="" class="col-xs-2 control-label">{{:label_title}}</label>
+
+	<div class="col-xs-10 richtmpl-container">
+		<div class="richtmpl-border">
+			<div class="elem-form-group">
+				<div class="elem-form">					
+					<div class="elem">
+						<img src="{{imagesrc:value}}" class="elem-img fa fa-picture-o fa-3x" onload="javascript:tmplImage.load(this);" onerror="javascript:tmplImage.error(this);"/>
+					</div>
+				</div>
+			</div>
+		
+			<div class="elem-form-group">
+				<div class="elem-form">
+					<div class="elem elem-title ellipsis"{{if value}} path="{{>value}}" filename="{{filename:value}}" {{/if}}onclick="javascript:tmplInput.edit(event);">{{if value}}{{>value}}{{/if}}</div>
+					<div class="elem-edit hidden">
+						<input type="text" class="form-control input-sm elem-value" value="{{>value}}" placeholder="{{:placeholder}}" onfocusout="javascript:tmplInput.edit(event);" onkeyup="javascript:tmplImage.keyup(event);">
+					</div>
+					<button type="button" class="btn btn-sm" onclick="javascript:tmplImage.select(this);">{{:btn_attach}}</button>
+					<div class="hidden">
+						<input type="file" class="elem-file" onchange="javascript:tmplImage.upload(this);" />
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+
+	<div class="richtmpl-del">
+		<button type="button" class="btn btn-sm" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

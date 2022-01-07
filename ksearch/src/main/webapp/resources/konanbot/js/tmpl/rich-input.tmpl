@@ -1,0 +1,17 @@
+<!-- TITLE, SUBTITLE, IFRAME, VIDEO, AUDIO  -->
+<div class="form-group richtmpl tmpl-input tmpl-{{:type}}" data-type="{{:type}}">
+	<label for="" class="col-xs-2 control-label">{{:label_title}}</label>
+	<div class="col-xs-10 richtmpl-container">
+		<div class="elem-form-group">
+			<div class="elem-form">
+				<div class="elem elem-title ellipsis" onclick="javascript:tmplInput.edit(event);">{{if text}}{{>text}}{{/if}}</div>
+				<div class="elem-edit hidden">
+					<input type="text" class="form-control input-sm elem-value" value="{{if text}}{{>text}}{{/if}}" placeholder="{{:placeholder}}"  onfocusout="javascript:tmplInput.edit(event);">
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="richtmpl-del">
+		<button type="button" class="btn btn-sm" onclick="javascript:richitem.remove(this);"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
+	</div>
+</div>

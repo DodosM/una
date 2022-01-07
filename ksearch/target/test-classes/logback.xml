@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 로그 경로 변수 선언 -->
+    <property name="LOG_DIR" value="./logs" />
+    
+    
+	<!-- Console Appender -->
+    <springProfile name="console-logging">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>%d{yyyy-mm-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M [%L]- %msg%n</Pattern>
+            </layout>
+        </appender>
+    </springProfile>
+    
+   <!-- Rolling File Appender -->
+    <springProfile name="file-logging">
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <encoder>
+                <Pattern>%d{yyyy-mm-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M [%L]- %msg%n</Pattern>
+            </encoder>
+            <file>${LOG_DIR}/ksearch.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_DIR}/ksearch-%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+                <maxFileSize>10MB</maxFileSize>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+        </appender>
+    </springProfile>
+
+    <root level="DEBUG">
+        <springProfile name="console-logging">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+
+        <springProfile name="file-logging">
+            <appender-ref ref="FILE"/>
+        </springProfile>
+    </root>
+
+</configuration>
