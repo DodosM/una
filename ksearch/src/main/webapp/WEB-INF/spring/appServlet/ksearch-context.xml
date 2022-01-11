@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/util
 		http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <util:properties id="searchConfig_origin">
+    <util:properties id="searchConfig">
         <prop key="SITE">KONAN</prop>
         <prop key="CHARSET">UTF-8</prop>
         <prop key="CREDENTIAL">0baea2f0ae20150d</prop>
