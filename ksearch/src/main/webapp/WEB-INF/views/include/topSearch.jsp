@@ -40,6 +40,9 @@
                         <li class="ctgr">
                             <a href="javascript:void(0);" data-target="sample" data-trcode="menu02">샘플<span class="gnb-bar"></span></a>
                         </li>
+                        <li class="ctgr">
+                            <a href="javascript:void(0);" data-target="book_info" data-trcode="menu02">책 정보<span class="gnb-bar"></span></a>
+                        </li>
                     </ul>
                     <div class="search-option">
                         <a href="javascript:void(0);" data-trcode="menu09">검색옵션<span class=""></span></a>

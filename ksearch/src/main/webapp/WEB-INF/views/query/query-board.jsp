@@ -9,5 +9,5 @@
 
      sbquery.append("");
 
-     System.out.println(">>>>>>>>>>>>>  query-sample "+paramvo);
+     System.out.println(">>>>>>>>>>>>>  query-board "+paramvo);
  %>

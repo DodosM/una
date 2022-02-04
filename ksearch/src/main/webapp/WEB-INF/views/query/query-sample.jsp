@@ -86,6 +86,7 @@ try{
 
 
      logger.debug(">>>>>>>>>>>>>  query-sample "+paramvo);
+     System.out.println(">>>>>>>>>>>>>  query-sample "+paramvo);
      logger.debug(">>>>>>>>>>>>>  resultvo list "+resultvo.getResult() );
      logger.debug(">>>>>>>>>>>>>  resultvo total "+resultvo.getTotal());
 

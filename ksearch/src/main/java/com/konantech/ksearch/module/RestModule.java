@@ -72,13 +72,12 @@ public class RestModule {
 			Gson gson = new Gson();
 
 			JsonObject jsonObject = gson.fromJson( sb.toString(), JsonObject.class);
-			JsonObject rsObject = jsonObject.get("result").getAsJsonObject() ;
-
+			JsonObject rsObject = jsonObject.get("result").getAsJsonObject() ; //postman에서 확인 할 수 있는 "result":{
 			//결과 set
-			resultVo.setStatus( jsonObject.get("status").getAsString() );
-			resultVo.setTotal(rsObject.get("total_count").getAsLong() );
+			resultVo.setStatus( jsonObject.get("status").getAsString() ); //postman에서 확인 할 수 있는 "status":{
+			resultVo.setTotal(rsObject.get("total_count").getAsLong() ); //postman에서 확인 할 수 있는 "total_count":{
 
-			JsonArray arr = rsObject.get("rows").getAsJsonArray();
+			JsonArray arr = rsObject.get("rows").getAsJsonArray(); //postman에서 확인 할 수 있는 "rows":{
 
 			List<Map<String, String>> list = new ArrayList<> ();
 			String[] fields = restVo.getSelectFields().split(",");
@@ -87,7 +86,7 @@ public class RestModule {
 			String data;
 			for(JsonElement element : arr){
 				map = new HashMap<>();
-				fieldobj = (element.getAsJsonObject()).get("fields").getAsJsonObject();
+				fieldobj = (element.getAsJsonObject()).get("fields").getAsJsonObject(); //postman에서 확인 할 수 있는 "fields":{      //fields안에 컬럼값들이 들어가있음 (idx,created_time...)
 
 				for(String field:fields){
 					data =  fieldobj.get(field).getAsString();

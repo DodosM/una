@@ -12,6 +12,9 @@
  * 사용되는 함수목록은 자동완성(), 오타교정(), 인기검색어() 기본 사용합니다.
  * - 해당 정보 호출하기전에 KSF 모듈에서 기능 사용을 적용하였는지 확인되어야 합니다.
  */
+
+/* 다음 js는 ***클릭로그***를 위해 사용하는 js부분이다 */
+
 $(function(){
 
 	//급상승키워드
@@ -42,7 +45,7 @@ $(function(){
 		$('#title').val(title);
 
 		var url = "kla/click.do";
-		var params = $('#clickForm').serialize();
+		var params = $('#clickForm').serialize(); //serialize:직렬화 //입력된 모든 element를 문자열의 데이터에 직렬화한다 //form을 대상으로 serialize()메소드를 사용하면 폼의 객체들을 한번에 받을 수 있음
 		$.post(url, params);
 
 	});
