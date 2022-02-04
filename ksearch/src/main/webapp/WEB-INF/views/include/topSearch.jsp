@@ -41,7 +41,7 @@
                             <a href="javascript:void(0);" data-target="sample" data-trcode="menu02">샘플<span class="gnb-bar"></span></a>
                         </li>
                         <li class="ctgr">
-                            <a href="javascript:void(0);" data-target="book_info" data-trcode="menu02">책 정보<span class="gnb-bar"></span></a>
+                            <a href="javascript:void(0);" data-target="book_info" data-trcode="menu03">책 정보<span class="gnb-bar"></span></a>
                         </li>
                     </ul>
                     <div class="search-option">
