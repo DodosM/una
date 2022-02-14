@@ -20,7 +20,7 @@ try{
      //검색어 없을 경우
      if(kwd.isEmpty()){
     	 request.setAttribute(totalName, 0 );
-    	 System.out.println("====검색어 없을 경우====");
+    	 System.out.println("==== book_info 검색어 없을 경우====");
     	 return;
      }
 
@@ -49,15 +49,17 @@ try{
     }
    
     //범위검색
+    /* 
     if( !paramvo.getStartDate().isEmpty()){
         sbquery.append(" and created_time >= '").append(paramvo.getStartDate()).append("' ");
     }
     if( !paramvo.getEndDate().isEmpty()){
         sbquery.append(" and created_time <= '").append(paramvo.getEndDate()).append("' ");
     }
-
+ */
 
     //정렬조건 d:최신순, r: 정확도순, c: 클릭순
+    /* 
     switch(paramvo.getSort()){
     case "d":
     	sbquery.append(" order by created_time desc ");
@@ -74,8 +76,9 @@ try{
     default:
     	sbquery.append(" order by created_time desc ");
         break;
-    }
+    } */
     
+ 
     System.out.println("====paramvo 가져오는 것 ==== : "+paramvo);
     
     
@@ -94,6 +97,12 @@ try{
      
      //url생성
      
+     logger.debug(restvo.getSelectFields());
+     System.out.println("필드 " + restvo.getSelectFields());
+     logger.debug(restvo.getUrl());
+     System.out.println("필드 " + restvo.getUrl());
+     logger.debug(restvo.getFrom());
+     System.out.println("필드 " + restvo.getFrom());
      
      RestResultVo resultvo = module.restSearchPost(restvo);
      System.out.println("module에서 가져오는 값 : "+resultvo);

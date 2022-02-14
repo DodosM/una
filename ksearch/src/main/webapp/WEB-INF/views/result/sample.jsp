@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <!-- s.샘플 -->
                 <div class="lst-type-wrap">
-                    <h3 data-target="sample">샘플
+                    <h3 data-target="sample">top_news
                     <c:choose>
                         <c:when test="${not empty error}">
                             <span> -<c:out value="${error}"  escapeXml="false"/></span>
@@ -62,6 +62,7 @@ $(function() {
 </script>
 
 <!--엑셀 다운로드 테이블 만들기  -->
+<!-- 
 <table border = "1" id="table-data-sample" class="dn">
     <tbody>
         <tr>
@@ -84,3 +85,4 @@ $(function() {
 </c:forEach>
     </tbody>
 </table>
+ -->

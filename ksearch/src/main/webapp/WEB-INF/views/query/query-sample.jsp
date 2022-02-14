@@ -20,6 +20,7 @@ try{
      //검색어 없을 경우
      if(kwd.isEmpty()){
     	 request.setAttribute(totalName, 0 );
+    	 System.out.println("============== top_news 검색어 없을 경우");
     	 return;
      }
 
@@ -47,17 +48,17 @@ try{
 
     //범위검색
     if( !paramvo.getStartDate().isEmpty()){
-        sbquery.append(" and created_ymd >= '").append(paramvo.getStartDate()).append("' ");
+        sbquery.append(" and created_time >= '").append(paramvo.getStartDate()).append("' ");
     }
     if( !paramvo.getEndDate().isEmpty()){
-        sbquery.append(" and created_ymd <= '").append(paramvo.getEndDate()).append("' ");
+        sbquery.append(" and created_time <= '").append(paramvo.getEndDate()).append("' ");
     }
 
 
     //정렬조건 d:최신순, r: 정확도순, c: 클릭순
     switch(paramvo.getSort()){
     case "d":
-    	sbquery.append(" order by created_ymd desc ");
+    	sbquery.append(" order by created_time desc ");
     	break;
     case "r":
         sbquery.append(" order by $relevance desc ");
@@ -65,20 +66,20 @@ try{
     case "c":
         String docids = module.getKeywordDocidRank(kwd, "sample", "w");
         if(!docids.isEmpty()){
-            sbquery.append(" order by post_id (").append(docids).append(") ");
+            sbquery.append(" order by idx (").append(docids).append(") ");
         }
         break;
     default:
-    	sbquery.append(" order by created_ymd desc ");
+    	sbquery.append(" order by created_time desc ");
         break;
     }
 
-     restvo.setSelectFields("post_id,user_id,post_url,created_ymd,category,title,message");
-     restvo.setFrom("sample.post");
+     restvo.setSelectFields("idx,created_time,updated_date,deleteflag,title,message,file_id,file_url,cn_lang,chain,document");
+     restvo.setFrom("top_news.top_news");
      restvo.setWhere( sbquery.toString() );
      restvo.setOffset( paramvo.getOffset() );
      restvo.setPagelength(paramvo.getPageSize() );
-     restvo.setHilightFields("{'title':{'length':250,'begin':'<strong>','end':'</strong>'}},{'message':{'length':200,'begin':'<strong>','end':'</strong>'}}");
+     restvo.setHilightFields("{'title':{'length':250,'begin':'<strong>','end':'</strong>'}},{'message':{'length':200,'begin':'<strong>','end':'</strong>'}},{'document':{'length':200,'begin':'<strong>','end':'</strong>'}}");
      restvo.setCustomLog(comUtil.getCustomLog(paramvo)  );
 
      RestResultVo resultvo = module.restSearchPost(restvo);

@@ -38,7 +38,7 @@
                             <a href="javascript:void(0);" data-target="total" data-trcode="menu01">통합검색<span class="gnb-bar"></span></a>
                         </li>
                         <li class="ctgr">
-                            <a href="javascript:void(0);" data-target="sample" data-trcode="menu02">샘플<span class="gnb-bar"></span></a>
+                            <a href="javascript:void(0);" data-target="sample" data-trcode="menu02">top_news<span class="gnb-bar"></span></a>
                         </li>
                         <li class="ctgr">
                             <a href="javascript:void(0);" data-target="book_info" data-trcode="menu03">책 정보<span class="gnb-bar"></span></a>

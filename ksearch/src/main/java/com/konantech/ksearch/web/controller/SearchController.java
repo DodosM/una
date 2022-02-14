@@ -32,15 +32,14 @@ public class SearchController {
 
 	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 
-	@RequestMapping(value = "/searchgo", method = RequestMethod.GET)
-	public String searchGet(@ModelAttribute("params") SearchParamVo paramvo , Model model) {
-
-		//기본파라미터 설정
-		setDefaultParam(paramvo);
-		logger.info(">>>>>>>>>>>>>> get params!! "+ paramvo);
-		return "search";
-	}
-
+	/*
+	 * @RequestMapping(value = "/searchgo", method = RequestMethod.GET) public
+	 * String searchGet(@ModelAttribute("params") SearchParamVo paramvo , Model
+	 * model) {
+	 * 
+	 * //기본파라미터 설정 setDefaultParam(paramvo);
+	 * logger.info(">>>>>>>>>>>>>> get params!! "+ paramvo); return "search"; }
+	 */
 	@RequestMapping(value = "/searchpo", method = {RequestMethod.GET, RequestMethod.POST})
 	public String searchPost(@ModelAttribute("params") SearchParamVo paramvo , Model model) {
 		//기본파라미터 설정

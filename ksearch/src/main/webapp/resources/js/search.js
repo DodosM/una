@@ -483,10 +483,12 @@ $(function() {
 
 	/* 카테고리 탭 클릭시 */
 	$('.gnb').on('click', 'li.ctgr a', function() {
+		alert($(this).attr('data-target'));
 		var target = $(this).attr('data-target');
 		var trcode = $(this).attr('data-trcode');
 		var kwd = $('#kwd').val();
 		if(kwd.indexOf('::') > 0) kwd = kwd.substring(0,kwd.indexOf('::'));
+		alert(target);
 		$('#kwd').val(kwd);
 		$('#category').val(target);
 		$('#page').val('1');

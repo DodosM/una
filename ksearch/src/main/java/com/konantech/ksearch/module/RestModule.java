@@ -66,12 +66,15 @@ public class RestModule {
 
 		StringBuffer sb = httpUtil.getUrlDataPost(restVo);
 		RestResultVo resultVo = new RestResultVo();
-
+		logger.debug("여기까지1");
+		System.out.println("왜 로그가 안찍힐까");
 		// 결과 파싱
 		try{
 			Gson gson = new Gson();
 
 			JsonObject jsonObject = gson.fromJson( sb.toString(), JsonObject.class);
+			System.out.println("여기까지");
+			System.out.println(jsonObject);
 			JsonObject rsObject = jsonObject.get("result").getAsJsonObject() ; //postman에서 확인 할 수 있는 "result":{
 			//결과 set
 			resultVo.setStatus( jsonObject.get("status").getAsString() ); //postman에서 확인 할 수 있는 "status":{
@@ -103,9 +106,12 @@ public class RestModule {
 
 			resultVo.setResult(list);
 
-		} catch (JsonParseException e){
-			logger.error(SEARCH5_EXCEPTION, e);
-			return null;
+		} catch (JsonParseException  E){
+			logger.error(SEARCH5_EXCEPTION);
+			System.out.println("Json 문제");
+		}catch(NullPointerException e) {
+			logger.info("null 오류");
+			System.out.println("null 에러");
 		}
 
 		logger.debug(resultVo.toString());

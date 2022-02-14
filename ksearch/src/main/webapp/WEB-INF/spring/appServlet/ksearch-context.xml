@@ -11,9 +11,9 @@
         <prop key="SITE">KONAN</prop>
         <prop key="CHARSET">UTF-8</prop>
         <prop key="CREDENTIAL">0baea2f0ae20150d</prop>
-        <prop key="KLA_URL">http://10.10.20.237:4577</prop>
-        <prop key="SEARCH_URL">http://10.10.20.237:9577/search5</prop>
-        <prop key="KSF_URL">http://10.10.20.237:9614/ksf/api/</prop>
+        <prop key="KLA_URL">http://192.168.116.131:7581</prop>
+        <prop key="SEARCH_URL">http://192.168.116.131:7577/search5</prop>
+        <prop key="KSF_URL">http://192.168.116.131:7614/ksf/api/</prop>
         <prop key="KONANBOT_URL">http://10.10.20.23:7624/konanbot/</prop>
         <prop key="KONANBOT_DEFAULT_DOMAIN">common</prop>
         <prop key="KONANBOT_DEFAULT_USER">test</prop>
