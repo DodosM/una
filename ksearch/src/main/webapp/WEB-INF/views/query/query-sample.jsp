@@ -10,6 +10,8 @@
     pageEncoding="utf-8"%>
  <%
    Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+ 
+ 	System.out.println("순서3) [query-sample] 진입 & API쿼리문 : " + this.getClass().getName());
 try{
     String listName = "sampleList";
     String totalName="sampleTotal";
@@ -32,12 +34,13 @@ try{
      StringBuffer sbquery = new StringBuffer();
      StringBuffer sbcustom = new StringBuffer();
      String strNmFd = paramvo.getFields().isEmpty()? "text_idx": paramvo.getFields();
+     
      //상세검색
      if(paramvo.isDetail() ){
     	 sbquery.append(	 comUtil.makeDetailQuery(paramvo, strNmFd));
      }else{  //일반검색
     	 sbquery.append(strNmFd);
-    	 sbquery.append(" = '").append(kwd).append("' allword synonym ");
+    	 sbquery.append(" = '").append(kwd).append("' allword ");
      }
 
      //결과내재검색
@@ -73,8 +76,9 @@ try{
     	sbquery.append(" order by created_time desc ");
         break;
     }
+    
 
-     restvo.setSelectFields("idx,created_time,updated_date,deleteflag,title,message,file_id,file_url,cn_lang,chain,document");
+     restvo.setSelectFields("idx,created_time,updated_date,deleteflag,title,message,file_id,file_url,chain,document");
      restvo.setFrom("top_news.top_news");
      restvo.setWhere( sbquery.toString() );
      restvo.setOffset( paramvo.getOffset() );
@@ -86,10 +90,12 @@ try{
 
 
 
-     logger.debug(">>>>>>>>>>>>>  query-sample "+paramvo);
-     System.out.println(">>>>>>>>>>>>>  query-sample "+paramvo);
-     logger.debug(">>>>>>>>>>>>>  resultvo list "+resultvo.getResult() );
-     logger.debug(">>>>>>>>>>>>>  resultvo total "+resultvo.getTotal());
+     //logger.debug(">>>>>>>>>>>>>  query-sample "+paramvo);
+     //System.out.println(">>>>>>>>>>>>>  query-sample "+paramvo);
+     //logger.debug(">>>>>>>>>>>>>  resultvo list "+resultvo.getResult());
+     //System.out.println(">>>>>>>>>>>>>  resultvo list "+resultvo.getResult());
+     //logger.debug(">>>>>>>>>>>>>  resultvo total "+resultvo.getTotal());
+     //System.out.println(">>>>>>>>>>>>>  resultvo total "+resultvo.getTotal());
 
      request.setAttribute(listName, resultvo.getResult() );
      request.setAttribute(totalName,resultvo.getTotal() );

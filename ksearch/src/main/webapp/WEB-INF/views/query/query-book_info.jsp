@@ -10,6 +10,9 @@
     pageEncoding="utf-8"%>
  <%
    Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+ 
+	System.out.println("순서3) [query-book_info] 진입 & API쿼리문 : " + this.getClass().getName());
+	
 try{
     String listName = "book_infoList";
     String totalName="book_infoTotal";
@@ -20,7 +23,7 @@ try{
      //검색어 없을 경우
      if(kwd.isEmpty()){
     	 request.setAttribute(totalName, 0 );
-    	 System.out.println("==== book_info 검색어 없을 경우====");
+    	 System.out.println("============== book_info 검색어 없을 경우");
     	 return;
      }
 
@@ -40,7 +43,7 @@ try{
     	 sbquery.append(strNmFd);
     	 sbquery.append(" = '").append(kwd).append("' allword "); 
      }
-	 System.out.println("1> 여기까지 생성된 쿼리  : "+ sbquery.toString());
+	 //System.out.println("1> 여기까지 생성된 쿼리  : "+ sbquery.toString());
      
      //결과내재검색
     if(paramvo.isResrch()){
@@ -49,20 +52,18 @@ try{
     }
    
     //범위검색
-    /* 
     if( !paramvo.getStartDate().isEmpty()){
-        sbquery.append(" and created_time >= '").append(paramvo.getStartDate()).append("' ");
+        sbquery.append(" and since >= '").append(paramvo.getStartDate()).append("' ");
     }
     if( !paramvo.getEndDate().isEmpty()){
-        sbquery.append(" and created_time <= '").append(paramvo.getEndDate()).append("' ");
+        sbquery.append(" and since <= '").append(paramvo.getEndDate()).append("' ");
     }
- */
+
 
     //정렬조건 d:최신순, r: 정확도순, c: 클릭순
-    /* 
     switch(paramvo.getSort()){
     case "d":
-    	sbquery.append(" order by created_time desc ");
+    	sbquery.append(" order by since desc ");
     	break;
     case "r":
         sbquery.append(" order by $relevance desc ");
@@ -74,38 +75,38 @@ try{
         }
         break;
     default:
-    	sbquery.append(" order by created_time desc ");
+    	sbquery.append(" order by since desc ");
         break;
-    } */
+    }
     
  
-    System.out.println("====paramvo 가져오는 것 ==== : "+paramvo);
+    //System.out.println("====paramvo 가져오는 것 ==== : "+paramvo);
     
     
-     restvo.setSelectFields("idx,bk_nm,bk_writer,content,file_nm,flpth,bk_reference,since,detail_txt,detail_html");
+     restvo.setSelectFields("idx,bk_nm,bk_writer,content,file_nm,flpth,bk_reference,filtering,since");
      restvo.setFrom("book_info.book_info");
      restvo.setWhere( sbquery.toString() );
      restvo.setOffset( paramvo.getOffset() );
      restvo.setPagelength(paramvo.getPageSize() );
-     restvo.setHilightFields("{'bk_nm':{'length':250,'begin':'<b>','end':'</b>'}},{'detail_txt':{'length':200,'begin':'<b>','end':'</b>'}}");
+     restvo.setHilightFields("{'bk_nm':{'length':250,'begin':'<b>','end':'</b>'}},{'filtering':{'length':200,'begin':'<b>','end':'</b>'}}");
      restvo.setCustomLog(comUtil.getCustomLog(paramvo)  );
      
-     System.out.println("====restvo 가져오는 것 ==== : "+restvo.toString());
+     //System.out.println("====restvo 가져오는 것 ==== : "+restvo.toString());
 
      
-     System.out.println("여기까지 됩니다");
+     //System.out.println("여기까지 됩니다");
      
      //url생성
      
      logger.debug(restvo.getSelectFields());
-     System.out.println("필드 " + restvo.getSelectFields());
+     //System.out.println("필드 " + restvo.getSelectFields());
      logger.debug(restvo.getUrl());
-     System.out.println("필드 " + restvo.getUrl());
+     //System.out.println("필드 " + restvo.getUrl());
      logger.debug(restvo.getFrom());
-     System.out.println("필드 " + restvo.getFrom());
+     //System.out.println("필드 " + restvo.getFrom());
      
      RestResultVo resultvo = module.restSearchPost(restvo);
-     System.out.println("module에서 가져오는 값 : "+resultvo);
+     //System.out.println("module에서 가져오는 값 : "+resultvo);
 
 
      logger.debug(">>>>>>>>>>>>>  query-book_info "+paramvo);

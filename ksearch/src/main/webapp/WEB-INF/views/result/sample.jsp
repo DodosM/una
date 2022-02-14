@@ -21,16 +21,16 @@
                     <c:if test="${sampleTotal> 0}">
                     <ul class="lst-type-thumb">
                     <c:forEach var="result" items="${sampleList}" varStatus="status">
-                    <fmt:parseDate value="${result.created_ymd}" var="dateFmt" pattern="yyyyMMdd"/>
+                    <fmt:parseDate value="${result.created_time}" var="dateFmt" pattern="yyyyMMddHHmmss"/>
                         <li style="min-height:0px">
-                            <input type="hidden" name="id" value="<c:out value="${result.post_id}"  escapeXml="false"/>">
+                            <input type="hidden" name="id" value="<c:out value="${result.idx}"  escapeXml="false"/>">
                             <dl>
                                 <dt>
-                                    <a class="title" href="<c:out value="${result.post_url}"/>" target="_blank"><c:out value="${result.title}"  escapeXml="false"/></a>
-                                    <span><fmt:formatDate value="${dateFmt}"  pattern="yyyy-MM-dd"/></span>
+                                    <a class="title" href="<c:out value="${result.title}"/>" target="_blank"><c:out value="${result.title}"  escapeXml="false"/></a>
+                                    <!-- <span><fmt:formatDate value="${dateFmt}"  pattern="yyyy-MM-dd"/></span>  -->
                                 </dt>
                                 <dd><c:out value="${result.message}"  escapeXml="false"/></dd>
-                                <dd class="link-info"><c:out value="${result.category}"  escapeXml="false"/></dd>
+                                <dd class="link-info"><c:out value="${result.chain}"  escapeXml="false"/></dd>
                             </dl>
                         </li>
                         </c:forEach>

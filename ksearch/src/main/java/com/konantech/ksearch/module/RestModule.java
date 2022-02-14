@@ -66,15 +66,13 @@ public class RestModule {
 
 		StringBuffer sb = httpUtil.getUrlDataPost(restVo);
 		RestResultVo resultVo = new RestResultVo();
-		logger.debug("여기까지1");
-		System.out.println("왜 로그가 안찍힐까");
+		//System.out.println("여기까지1" + sb);
 		// 결과 파싱
 		try{
 			Gson gson = new Gson();
 
 			JsonObject jsonObject = gson.fromJson( sb.toString(), JsonObject.class);
-			System.out.println("여기까지");
-			System.out.println(jsonObject);
+			System.out.println("순서2) [RestModule] json결과파싱 : " + jsonObject);
 			JsonObject rsObject = jsonObject.get("result").getAsJsonObject() ; //postman에서 확인 할 수 있는 "result":{
 			//결과 set
 			resultVo.setStatus( jsonObject.get("status").getAsString() ); //postman에서 확인 할 수 있는 "status":{

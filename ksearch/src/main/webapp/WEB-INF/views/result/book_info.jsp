@@ -10,7 +10,7 @@
                             <span> -<c:out value="${error}"  escapeXml="false"/></span>
                         </c:when>
                         <c:otherwise>
-                            <span> (<fmt:formatNumber value="${sampleTotal}" groupingUsed="true"/>건)</span>
+                            <span> (<fmt:formatNumber value="${book_infoTotal}" groupingUsed="true"/>건)</span>
                             <c:if test="${params.category ne 'total'}">
                             <span style="float:right"><img src="resources/images/ico-excel.png" alt="엑셀다운" style="cursor: pointer;" onclick="javascript:doit('searchSample','table-data-sample')" ></span>
                             </c:if>
@@ -18,18 +18,18 @@
                     </c:choose>
                     </h3>
 
-                    <c:if test="${sampleTotal> 0}">
+                    <c:if test="${book_infoTotal> 0}">
                     <ul class="lst-type-thumb">
-                    <c:forEach var="result" items="${sampleList}" varStatus="status">
-                    <fmt:parseDate value="${result.created_ymd}" var="dateFmt" pattern="yyyyMMdd"/>
+                    <c:forEach var="result" items="${book_infoList}" varStatus="status">
+                    <fmt:parseDate value="${result.since}" var="dateFmt" pattern="yyyyMMdd"/>
                         <li style="min-height:0px">
-                            <input type="hidden" name="id" value="<c:out value="${result.post_id}"  escapeXml="false"/>">
+                            <input type="hidden" name="id" value="<c:out value="${result.idx}"  escapeXml="false"/>">
                             <dl>
                                 <dt>
-                                    <a class="title" href="<c:out value="${result.post_url}"/>" target="_blank"><c:out value="${result.title}"  escapeXml="false"/></a>
-                                    <span><fmt:formatDate value="${dateFmt}"  pattern="yyyy-MM-dd"/></span>
+                                    <a class="title" href="<c:out value="${result.bk_nm}"/>" target="_blank"><c:out value="${result.bk_nm}"  escapeXml="false"/></a>
+                                    <!-- <span><fmt:formatDate value="${dateFmt}"  pattern="yyyy-MM-dd"/></span>  -->
                                 </dt>
-                                <dd><c:out value="${result.message}"  escapeXml="false"/></dd>
+                                <dd><c:out value="${result.content}"  escapeXml="false"/></dd>
                                 <dd class="link-info"><c:out value="${result.category}"  escapeXml="false"/></dd>
                             </dl>
                         </li>
@@ -40,7 +40,7 @@
 
                     <c:if test="${params.category eq 'total' and sampleTotal > params.pageSize}">
                     <div class="section-btn more">
-                        <a href="javascript:void(0);" data-target="sample" data-trcode="sweb_more">샘플 더 보기<span class="ico-set arrow-type-a"></span></a>
+                        <a href="javascript:void(0);" data-target="sample" data-trcode="sweb_more">책정보 더 보기<span class="ico-set arrow-type-a"></span></a>
                     </div>
                     </c:if>
 
@@ -53,7 +53,7 @@
 
 $(function() {
 	 <c:if test="${params.category ne 'total'}">
-    $('#pagination').pagination(<c:out value="${sampleTotal}"/>, {
+    $('#pagination').pagination(<c:out value="${book_infoTotal}"/>, {
         current_page: <fmt:formatNumber value="${params.page -1 }" minFractionDigits="0"/>,
         callback: gotopage
     });
