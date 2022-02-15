@@ -90,7 +90,6 @@
 
 	<div id="wrap" class="sub">
 		<header id="header">
-
 			<!-- 검색창 -->
             <jsp:include page="include/topSearch.jsp"/>
 			<!-- end.상세검색 -->
@@ -114,6 +113,7 @@
 
                 <!-- 검색결과 -->
                 <jsp:include page="result/total.jsp"/>
+
 			</section>
 
 			<section id="column-right">

@@ -3,8 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <!-- s.샘플 -->
+<c:if test="${book_infoTotal > 0}">
                 <div class="lst-type-wrap">
-                    <h3 data-target="sample">책 정보
+                    <h3 data-target="book_info">책 정보
                     <c:choose>
                         <c:when test="${not empty error}">
                             <span> -<c:out value="${error}"  escapeXml="false"/></span>
@@ -84,3 +85,5 @@ $(function() {
 </c:forEach>
     </tbody>
 </table>
+
+</c:if>

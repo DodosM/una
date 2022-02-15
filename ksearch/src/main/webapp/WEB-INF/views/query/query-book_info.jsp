@@ -11,7 +11,7 @@
  <%
    Logger logger = LoggerFactory.getLogger(this.getClass().getName());
  
-	System.out.println("순서3) [query-book_info] 진입 & API쿼리문 : " + this.getClass().getName());
+	System.out.println("순서1) [query-book_info] 진입 & API쿼리문 : " + this.getClass().getName());
 	
 try{
     String listName = "book_infoList";

@@ -11,7 +11,7 @@
  <%
    Logger logger = LoggerFactory.getLogger(this.getClass().getName());
  
- 	System.out.println("순서3) [query-sample] 진입 & API쿼리문 : " + this.getClass().getName());
+ 	System.out.println("순서1) [query-sample] 진입 & API쿼리문 : " + this.getClass().getName());
 try{
     String listName = "sampleList";
     String totalName="sampleTotal";
@@ -21,7 +21,7 @@ try{
 
      //검색어 없을 경우
      if(kwd.isEmpty()){
-    	 request.setAttribute(totalName, 0 );
+    	 request.setAttribute(totalName, 0 ); //request.setAttribute(String name, Object o);
     	 System.out.println("============== top_news 검색어 없을 경우");
     	 return;
      }

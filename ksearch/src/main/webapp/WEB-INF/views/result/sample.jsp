@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <!-- s.샘플 -->
+<c:if test="${sampleTotal > 0}">
                 <div class="lst-type-wrap">
                     <h3 data-target="sample">top_news
                     <c:choose>
@@ -86,3 +87,5 @@ $(function() {
     </tbody>
 </table>
  -->
+
+ </c:if>

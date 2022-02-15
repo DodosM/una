@@ -72,7 +72,7 @@ public class RestModule {
 			Gson gson = new Gson();
 
 			JsonObject jsonObject = gson.fromJson( sb.toString(), JsonObject.class);
-			System.out.println("순서2) [RestModule] json결과파싱 : " + jsonObject);
+			System.out.println("순서3) [RestModule] json결과파싱 : " + jsonObject);
 			JsonObject rsObject = jsonObject.get("result").getAsJsonObject() ; //postman에서 확인 할 수 있는 "result":{
 			//결과 set
 			resultVo.setStatus( jsonObject.get("status").getAsString() ); //postman에서 확인 할 수 있는 "status":{

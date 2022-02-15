@@ -184,7 +184,7 @@ public class HttpUtil {
 			sbData.append("&hilite-fields=").append(URLEncoder.encode(restVo.getHilightFields(),CHARSET_UTF8));
 			sbData.append("&custom=").append(URLEncoder.encode(restVo.getCustomLog(),CHARSET_UTF8) );
 			sbData.append("&charset=").append(restVo.getCharset());
-			System.out.println("순서1) [HttpUtil] getUrlDataPost : " + sbData.toString());
+			System.out.println("순서2) [HttpUtil] getUrlDataPost : " + sbData.toString());
 		}catch (Exception e) {
 			logger.error(SEARCH5_EXCEPTION, e);
 			return  new StringBuffer();
