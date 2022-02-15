@@ -20,7 +20,7 @@ XMLHttpRequest 객체
 	- 즉, 웹 페이지 전체를 다시 로딩하지 않고 일부분만 갱신할 수 있게 됨
  -->
  
-
+<%-- 통합 검색 창 --%>
 <c:choose>
 	<c:when test="${sampleTotal == 0}"> <!-- c:when test="${sampleTotal == 0}"  ${header['X-Requested-With'] == 'XMLHttpRequest'} -->
 		<jsp:include page="noresult.jsp"/> 
@@ -30,10 +30,12 @@ XMLHttpRequest 객체
 		<jsp:include page="book_info.jsp" />
 	</c:otherwise>
 </c:choose>
+<%-- 각 카테고리를 클릭 했을 때, 해당하는 값을 불러올려면 (*해당카테고리*.jsp 맨 상단에 c:if 붙이기) --%>
 
 
 
-<%-- 
+
+<%-- 다음은 내가 헷갈렸던 문제이다
 	<c:choose>
 		<c:when test="${sampleTotal > 0 && book_infoTotal > 0}">
 			<jsp:include page="sample.jsp" />
