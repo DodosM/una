@@ -39,9 +39,9 @@
                     </c:if>
 
 
-                    <c:if test="${params.category eq 'total' and sampleTotal > params.pageSize}">
+                    <c:if test="${params.category eq 'total' and book_infoTotal > params.pageSize}">
                     <div class="section-btn more">
-                        <a href="javascript:void(0);" data-target="sample" data-trcode="sweb_more">책정보 더 보기<span class="ico-set arrow-type-a"></span></a>
+                        <a href="javascript:void(0);" data-target="book_info" data-trcode="sweb_more">책정보 더 보기<span class="ico-set arrow-type-a"></span></a>
                     </div>
                     </c:if>
 

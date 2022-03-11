@@ -1,6 +1,7 @@
  <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="com.konantech.ksearch.web.vo.RestResultVo"%>
 <%@page import="com.konantech.ksearch.module.RestModule"%>
 
@@ -22,10 +23,11 @@ XMLHttpRequest 객체
  
 <%-- 통합 검색 창 --%>
 <c:choose>
-	<c:when test="${sampleTotal == 0}"> <!-- c:when test="${sampleTotal == 0}"  ${header['X-Requested-With'] == 'XMLHttpRequest'} -->
+	<c:when test="${sampleTotal == 0 && book_infoTotal == 0}"> <!-- c:when test="${sampleTotal == 0}"  ${header['X-Requested-With'] == 'XMLHttpRequest'} -->
 		<jsp:include page="noresult.jsp"/> 
 	</c:when>
 	<c:otherwise>
+		<span style="float:right;position:relative;left:-30%;padding-bottom:5px;padding-top:5px;"><strong>"<c:out value="${params.kwd}"/>"</strong>에 대한 전체 <c:out value="${sampleTotal + book_infoTotal}" />건이 검색되었습니다</span>
 		<jsp:include page="sample.jsp" />
 		<jsp:include page="book_info.jsp" />
 	</c:otherwise>
